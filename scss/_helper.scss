@@ -1,0 +1,135 @@
+$a: #31313a;
+$b: #313139;
+$c: #1b1b1f;
+$d: #ff2768;
+$e: #ffffffd9;
+$f: #ffffffd9;
+$g: #999999;
+$h: #666;
+
+// mixins
+@mixin bubble($h, $w) {
+  height: $h;
+  width: $w;
+  border-radius: 50%;
+  background: linear-gradient(to right, rgba($d, 0.3), rgba($d, 0.03));
+}
+
+@mixin header {
+  text-transform: capitalize;
+  font-weight: bold;
+
+  span {
+    color: $d;
+    position: relative;
+    z-index: 1;
+    &::before {
+      content: "";
+      @include bubble(30px, 30px);
+      position: absolute;
+      top: 4px;
+      left: -7px;
+      z-index: -1;
+    }
+  }
+}
+
+// all
+.text-d {
+  color: $d !important;
+}
+a,
+a:hover {
+  text-decoration: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4 {
+  margin-bottom: 0;
+}
+p {
+  font-weight: 600;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+body {
+  background-color: $c;
+  color: $e;
+
+}
+
+.section_header {
+  @include header;
+}
+.bg-transpharent {
+  background: transparent !important;
+
+  &::after,
+  &::before {
+    background: transparent !important;
+  }
+}
+
+.allHr {
+  margin: 30px 0;
+  opacity: 0.05;
+}
+
+.bubble_inner {
+  background-color: rgba($d, 0.1);
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  line-height: 68px;
+  text-align: center;
+  color: $d;
+}
+
+.container {
+  @media (min-width: 1200px) {
+    max-width: 1190px;
+  }
+}
+
+
+// preloader
+.preloader{
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background-color: $c;
+  display: grid;
+  place-content: center;
+  z-index: 999;
+
+  &_circle{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: $d;
+    animation: preloader .8s linear infinite;
+  }
+  
+}
+
+@keyframes preloader {
+  0%{
+    transform: scale(0);
+    opacity: 0;
+  }
+  100%{
+    transform: scale(1);
+    opacity: 1;
+  }
+}
