@@ -331,7 +331,7 @@ main .profile {
 }
 
 main .profile_cover {
-  background-image: url(../images/cover.JPG);
+  background-image: url(./images/cover.JPG);
   background-size: cover;
   background-position: center center;
   height: 50vh;
