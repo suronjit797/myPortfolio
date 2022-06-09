@@ -90,8 +90,8 @@ messageForm.addEventListener('submit', (event) => {
 
     Email.send({
       SecureToken: "9d290e20-10a4-4cc8-bb5a-e7bdcd5671af",
-      To: 'suronjit797@gmail.com',
-      From: email,
+      To: email,
+      From: 'suronjit797@gmail.com',
       Subject: `Portfolio contact from - ${name}`,
       Body: message
     })
