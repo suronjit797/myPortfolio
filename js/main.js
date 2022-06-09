@@ -96,7 +96,7 @@ messageForm.addEventListener('submit', (event) => {
       Body: message
     })
     .then(message => {
-      console.log(message);
+      console.log(email);
       alert(message)
     });
 
