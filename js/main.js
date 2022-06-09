@@ -95,10 +95,15 @@ messageForm.addEventListener('submit', (event) => {
       Subject: `Portfolio contact from - ${name}`,
       Body: message
     })
-    .then(message => {
-      console.log(email);
-      alert(message)
-    });
+      .then(message => {
+        console.log(message);
+        alert('mail send successfully')
+        fullNameData.value = ''
+        emailData.value = ''
+        messageData.value = ''
+
+
+      });
 
 
 
