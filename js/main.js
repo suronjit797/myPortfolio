@@ -1,13 +1,9 @@
-
-  // isotope
-
-// isotope
 // init Isotope
 var $grid = $('.works_isotope').isotope({
   // options
 });
 // filter items on button click
-$('.filter-button-group').on( 'click', 'p', function() {
+$('.filter-button-group').on('click', 'p', function () {
   var filterValue = $(this).attr('data-filter');
   $grid.isotope({ filter: filterValue });
 });
@@ -60,18 +56,53 @@ $(document).ready(function () {
 
 
 
-
-
-
-
-
-
 });
 
 
 window.addEventListener('load', () => {
   $('.preloader').hide()
-  
+
 })
 
 
+// main js
+const messageForm = document.getElementById('messageForm')
+
+const fullNameData = document.getElementById('fullName')
+const emailData = document.getElementById('email')
+const messageData = document.getElementById('message')
+
+
+
+// mail api
+
+
+
+
+
+messageForm.addEventListener('submit', (event) => {
+  event.preventDefault()
+  const name = fullNameData.value
+  const email = emailData.value
+  const message = messageData.value
+  if (name && email && message) {
+
+
+    Email.send({
+      SecureToken: "9d290e20-10a4-4cc8-bb5a-e7bdcd5671af",
+      To: 'suronjit797@gmail.com',
+      From: email,
+      Subject: `Portfolio contact from - ${name}`,
+      Body: message
+    })
+    .then(message => {
+      console.log(message);
+      alert(message)
+    });
+
+
+
+  } else {
+    alert('Please fill up all boxes')
+  }
+})
