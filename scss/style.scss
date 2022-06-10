@@ -1,15 +1,38 @@
 @import "./helper";
 
+img {
+  max-width: 100%;
+}
+
 header {
   position: sticky;
   top: 0;
   left: 0;
   z-index: 99;
-  background-color: $a;
-  box-shadow: 0 0 25px #0000000d;
+
+  .header {
+
+    &_top {
+      background-color: $a;
+      box-shadow: 0 0 25px #0000000d;
+      position: relative;
+      z-index: 10;
+    }
+
+    &_bottom {
+      background-color: $a;
+      box-shadow: 0 0 25px #0000000d;
+      transition: .3s ease;
+      transform: translateY(-200px);
+
+      &.active{
+        transform: translateY(0);
+      }
+    }
+  }
 
   @media (min-width: 768px) {
-    display: none;
+    display: none !important;
   }
 
   .header {
@@ -17,6 +40,7 @@ header {
       padding: 10px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.103);
     }
+
     &_logo {
       &-inner {
         img {
@@ -36,6 +60,7 @@ header {
 
     &_humb {
       cursor: pointer;
+
       span {
         display: block;
         height: 2px;
@@ -49,9 +74,11 @@ header {
         &:first-child {
           width: 23px;
         }
+
         &:nth-child(2) {
           width: 28px;
         }
+
         &:last-child {
           width: 18px;
         }
@@ -95,6 +122,7 @@ header {
         p {
           font-size: 12px;
         }
+
         i {
           display: block;
           margin-bottom: 10px;
@@ -136,6 +164,7 @@ header {
 
         &:hover,
         &.active {
+
           a,
           i {
             color: $d;
@@ -155,6 +184,7 @@ main {
     align-items: center;
     height: 100vh;
     margin: 0 !important;
+
     & .profile {
       height: 90vh;
       overflow-y: scroll;
@@ -172,7 +202,7 @@ main {
       }
     }
 
-    & > .right {
+    &>.right {
       height: 80vh;
       overflow-y: scroll;
       border-radius: 5px;
@@ -258,8 +288,8 @@ main {
       text-align: justify;
     }
 
-    .fanFact{
-      b{
+    .fanFact {
+      b {
         font-weight: 500;
         font-size: 14px;
       }
@@ -281,6 +311,7 @@ main {
     p {
       color: $g;
     }
+
     .seasone {
       small {
         border: 1px solid $d;
@@ -290,6 +321,7 @@ main {
         display: inline-block;
       }
     }
+
     .seasone_end {
       small {
         border: 1px solid $h;
@@ -303,6 +335,7 @@ main {
     .progress {
       height: 5px;
       background-color: $g;
+
       &-bar {
         background-color: $d;
       }
@@ -312,13 +345,14 @@ main {
 
 .works {
   padding-bottom: 30px;
+
   .button-group {
     text-transform: capitalize;
 
     &::selection {
       display: none;
     }
-    
+
     p {
       display: inline-block;
       margin-right: 10px;
@@ -332,34 +366,40 @@ main {
 
   &_isotope {
 
+    cursor: pointer;
 
-    & > div {
-      margin-bottom: 20px;
+    &>div {
       transition: 0.3s ease;
 
       &:hover {
         h5 {
           color: $d;
         }
+
         .isotope_image::before {
           opacity: 1;
         }
       }
     }
-    .isotope_image {
-      position: relative;
 
-      &::before {
-        content: "";
-        background: linear-gradient(to right, rgba($d, 1), rgba($d, 0.1));
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        opacity: 0;
-        transition: 0.3s ease;
+    .isotope {
+
+      &_image {
+        position: relative;
+
+        &::before {
+          content: "";
+          background: linear-gradient(to right, rgba($d, 1), rgba($d, 0.1));
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          opacity: 0;
+          transition: 0.3s ease;
+        }
       }
+
     }
 
     h5 {
@@ -369,8 +409,43 @@ main {
   }
 }
 
+.isotope_modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: scale(0);
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(10, 17, 59, 0.486);
+  z-index: 24;
+  transition: .4s ease;
+
+  &.active {
+    transform: scale(1);
+  }
+
+  .fa-times {
+    font-size: 28px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+
+  &-body {
+    max-width: 500px;
+    margin: 0px auto;
+    background-color: #fff;
+    height: 100vh;
+    padding: 20px;
+    color: $a;
+    overflow-y: scroll;
+  }
+}
+
 .contact {
   form {
+
     input,
     textarea {
       background-color: transparent !important;
@@ -378,7 +453,7 @@ main {
       border-bottom: 1px solid $h;
       border-radius: 0;
       box-shadow: none !important;
-      color: $f !important;
+      color: $f  !important;
     }
 
     button {
@@ -396,6 +471,7 @@ main {
 
       &:hover {
         color: $d;
+
         i {
           margin-left: 10px;
         }
@@ -425,4 +501,10 @@ main {
       }
     }
   }
+}
+
+
+// allHr-dark
+.allHr-dark {
+  background-color: #222229;
 }
